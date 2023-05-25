@@ -5,7 +5,6 @@
             <div
                 v-for="item in visibleData"
                 :key="item.id"
-                ref="items"
                 class="list-item"
                 :style="{ height: itemSize + 'px', lineHeight: itemSize + 'px' }"
             >
@@ -28,8 +27,6 @@ const props = defineProps<{
     listData: IListItem[]; // 数据项
     itemSize: number; // 列表项的高度
 }>();
-
-debugger;
 
 const screenHeight = ref(0); // 可视区域高度
 const startOffset = ref(0); // 偏移量
