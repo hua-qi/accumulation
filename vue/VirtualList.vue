@@ -42,11 +42,10 @@ const getTransform = computed(() => `translate3d(0,${startOffset.value}px,0)`); 
 const list = ref();
 const handleScroll = () => {
     const scrollTop = list.value.scrollTop;
+    if (scrollTop >= listHeight.value) return; // 防止计算失效
     start.value = Math.floor(scrollTop / props.itemSize);
     end.value = start.value + visibleCount.value;
     startOffset.value = scrollTop - (scrollTop % props.itemSize);
-    console.log('scrollTop', scrollTop);
-    console.log('startOffset', startOffset.value);
 };
 
 onMounted(() => {
