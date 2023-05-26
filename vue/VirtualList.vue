@@ -3,13 +3,13 @@
         <div class="phantom" :style="{ height: listHeight + 'px' }"></div>
         <div class="list" :style="{ transform: getTransform }">
             <div
-                v-for="item in visibleData"
+                v-for="(item, index) in visibleData"
                 :key="item.id"
                 class="list-item"
                 :style="{ height: itemSize + 'px', lineHeight: itemSize + 'px' }"
             >
                 <!-- 列表行 -->
-                <slot :item="item" name="row" />
+                <slot :index="index" :item="item" name="row" />
             </div>
         </div>
     </div>
