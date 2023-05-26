@@ -20,7 +20,7 @@ import { ref, onMounted, computed } from 'vue';
 
 interface IListItem {
     id: number;
-    value: string;
+    [key: string]: any
 }
 
 const props = defineProps<{
